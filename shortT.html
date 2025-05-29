@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTM Stitches - Short Trouser Measurement</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assests/fav.jpg">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Trouser Measurement</h1>
+        <p class="long-trouser">Please fill in your details and short trouser measurements below.</p>
+        <form action="https://api.web3forms.com/submit" method="POST" class="reservation-form" enctype="multipart/form-data">
+            <input type="hidden" name="access_key" value="83cd239f-766a-4db5-ab61-979a0275bb33">
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label>Measurement Unit</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="unit" value="inch" required> Inch
+                    </label>
+                    <label>
+                        <input type="radio" name="unit" value="cm" required> cm
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="waist">Waist</label>
+                <input type="number" id="waist" name="waist" placeholder="Enter waist measurement" required>
+            </div>
+
+            <div class="form-group">
+                <label for="thighs">Thighs</label>
+                <input type="number" id="thighs" name="thighs" placeholder="Enter thighs measurement" required>
+            </div>
+
+            <div class="form-group">
+                <label for="knee">Knee</label>
+                <input type="number" id="knee" name="knee" placeholder="Enter knee measurement" required>
+            </div>
+
+            <div class="form-group">
+                <label for="length">Length</label>
+                <input type="number" id="length" name="length" placeholder="Enter length measurement" required>
+            </div>
+            <div class="form-group">
+                <label for="sleeves">Sleeves</label>
+                <select id="sleeves" name="sleeves" required>
+                    <option value="">-- Select Sleeve Type --</option>
+                    <option value="Long">Long</option>
+                    <option value="Short">Short</option>
+                    <option value="3/4">3/4</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="hem">Hem</label>
+                <input type="number" id="hem" name="hem" placeholder="Enter hem measurement" required>
+            </div>
+
+            <div class="form-group">
+                <label for="photo">Upload Image of Your Self <span style="color:#888;font-size:0.95em;">(optional)</span></label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label for="photo">Upload Image of The Prefered Design <span style="color:#888;font-size:0.95em;">(optional)</span></label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Additional Notes</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Any extra info? (optional)"></textarea>
+            </div>
+
+            <button type="submit" class="form-btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
