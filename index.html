@@ -5,175 +5,223 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BTM Stitches</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assests/fav.jpg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Poppins', Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8eaf6 100%);
-            color: #232323;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-        .background-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(120deg, rgba(37,211,102,0.07) 0%, rgba(255,215,0,0.07) 100%);
-            z-index: 0;
-            pointer-events: none;
-        }
+       /* ...existing styles... */
+
+body {
+    background:
+        linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
+        url('assests/image .jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #232323;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Welcome Section Glassmorphism */
+.main-content {
+    text-align: center;
+    margin-top: 2.5rem;
+    background: rgba(255,255,255,0.80); /* More visible on image 10.jpg */
+    border-radius: 32px;
+    box-shadow: 0 8px 40px rgba(37,211,102,0.13);
+    padding: 3rem 1.7rem 2.5rem 1.7rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba(255,215,0,0.13);
+    position: relative;
+    z-index: 2;
+}
+
+.main-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.7rem;
+    color: #25d366;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(255,215,0,0.08);
+}
+
+.main-content h1 span {
+    color: #ffd700;
+    text-shadow: 0 2px 8px rgba(37,211,102,0.08);
+}
+
+.main-content p {
+    font-size: 1.22rem;
+    color: #2d2d2d;
+    margin-bottom: 1.7rem;
+    text-shadow: 0 2px 8px rgba(255,255,255,0.13);
+}
+
+.hero-btn {
+    background: linear-gradient(90deg, #25d366 60%, #ffd700 100%);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 1rem 2.7rem;
+    font-size: 1.18rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 16px rgba(255,215,0,0.18);
+    text-decoration: none;
+    margin-top: 1.2rem;
+}
+
+.hero-btn:hover {
+    background: #fff;
+    color: #25d366;
+    border: 2px solid #25d366;
+    box-shadow: 0 2px 16px rgba(37,211,102,0.13);
+}
+
+/* ...rest of your styles remain the same... */
         nav {
             background: rgba(255,255,255,0.98);
-            box-shadow: 0 4px 24px rgba(37,211,102,0.07);
-            padding: 1.2rem 3vw;
-            border-bottom: 1.5px solid #e6e6e6;
+            border-bottom: 3px solid #ffd700;
+            box-shadow: 0 2px 12px rgba(37,211,102,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: relative;
-            z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0.7rem 1rem;
         }
         .logo img {
-            height: 54px;
-            filter: drop-shadow(0 2px 8px rgba(37,211,102,0.08));
+            height: 48px;
         }
         .nav-links {
             display: flex;
-            gap: 2.2rem;
+            gap: 1.5rem;
             list-style: none;
             margin: 0;
             padding: 0;
         }
         .nav-links a {
-            text-decoration: none;
-            color: #232323;
+            color: #25d366;
             font-weight: 600;
-            font-size: 1.08rem;
-            padding: 10px 18px;
-            border-radius: 6px;
-            transition: background 0.2s, color 0.2s;
-            letter-spacing: 0.5px;
+            text-decoration: none;
+            font-size: 1.07rem;
+            transition: color 0.2s;
         }
         .nav-links a:hover,
         .nav-links .dropdown:hover > a {
-            background: linear-gradient(90deg, #25d366 60%, #ffd700 100%);
-            color: #fff;
+            color: #ffd700;
         }
         .dropdown {
             position: relative;
         }
-        .dropdown > a::after {
-            content: " ▼";
-            font-size: 0.7em;
-            color: #25d366;
-            margin-left: 4px;
-            transition: transform 0.2s;
-        }
-        .dropdown:hover > a::after,
-        .dropdown:focus-within > a::after {
-            transform: rotate(-180deg);
-        }
         .dropdown-menu {
-            background: #fff;
-            box-shadow: 0 8px 32px rgba(37,211,102,0.15);
-            border-radius: 12px;
-            min-width: 200px;
-            padding: 0.5rem 0;
+            display: none;
             position: absolute;
-            top: 110%;
             left: 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+            top: 2.2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.10);
+            min-width: 170px;
             z-index: 10;
         }
-        .dropdown:hover .dropdown-menu,
-        .dropdown:focus-within .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .dropdown-menu li a {
-            color: #232323;
-            padding: 12px 22px;
+        .dropdown:hover .dropdown-menu {
             display: block;
-            font-weight: 500;
-            border-radius: 0;
-            background: none;
-            transition: background 0.2s, color 0.2s;
         }
-        .dropdown-menu li a:hover {
-            background: #25d366;
-            color: #fff;
+        .dropdown-menu li {
+            list-style: none;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 0.7rem 1.2rem;
+            color: #25d366;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .dropdown-menu a:hover {
+            background: #ffd700;
+            color: #232323;
         }
         .menu-icon {
             display: none;
-            font-size: 2.2rem;
+            font-size: 2rem;
+            color: #25d366;
             cursor: pointer;
-            color: #232323;
-            z-index: 11;
+        }
+        @media (max-width: 800px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                top: 60px;
+                right: 10px;
+                border-radius: 12px;
+                box-shadow: 0 4px 24px rgba(37,211,102,0.12);
+                padding: 1rem 2rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-icon {
+                display: block;
+            }
         }
         .main-content {
             text-align: center;
-            margin-top: 7vh;
-            color: #232323;
-            z-index: 1;
-            position: relative;
+            margin-top: 2.5rem;
         }
         .main-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 600;
+            font-size: 2.5rem;
+            color: #25d366;
             margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-            color: #232323;
         }
-        .main-content span {
+        .main-content h1 span {
             color: #ffd700;
-            font-family: 'Playfair Display', serif;
         }
         .main-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+            font-size: 1.2rem;
             color: #444;
+            margin-bottom: 1.5rem;
         }
         .hero-btn {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.85rem 2.5rem;
             background: linear-gradient(90deg, #25d366 60%, #ffd700 100%);
             color: #fff;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.15rem;
-            text-decoration: none;
-            box-shadow: 0 2px 12px rgba(37,211,102,0.13);
-            transition: background 0.2s, color 0.2s;
             border: none;
+            border-radius: 30px;
+            padding: 0.8rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 2px 8px rgba(255,215,0,0.15);
+            text-decoration: none;
         }
         .hero-btn:hover {
             background: #fff;
             color: #25d366;
             border: 2px solid #25d366;
         }
-        .gallery-section {
-            text-align: center;
-            margin: 3rem auto 0 auto;
-            color: #232323;
-            z-index: 1;
-            position: relative;
-        }
-        .gallery-section h2 {
-            font-size: 2.1rem;
-            margin-bottom: 1.2rem;
+        .gallery-section h2,
+        .about-section h2,
+        .video-section h2,
+        .testimonials-section h2,
+        .faq-section h2,
+        .contact-form h2 {
             color: #ffd700;
             font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
         .gallery-note {
             color: #444;
@@ -186,285 +234,147 @@
             flex-wrap: wrap;
             gap: 1.5rem;
             justify-content: center;
-            margin: 2rem 0;
         }
         .gallery-images img {
             width: 220px;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(255,215,0,0.10);
-            background: #fff;
-            border: 2px solid #ffd700;
-            transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(37,211,102,0.07);
         }
-        .gallery-images img:hover {
-            transform: scale(1.04);
-            box-shadow: 0 8px 32px rgba(255,215,0,0.18);
-            border: 2px solid #25d366;
-        }
-        .about-section {
-            max-width: 850px;
-            margin: 3rem auto 2rem auto;
-            background: rgba(255,255,255,0.98);
-            border-radius: 22px;
-            box-shadow: 0 8px 40px rgba(255,215,0,0.10);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            border-left: 8px solid #ffd700;
-            border-right: 8px solid #25d366;
-        }
-        .about-section h2 {
-            color: #ffd700;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin-bottom: 1.2rem;
-            letter-spacing: 1px;
-            font-weight: 700;
-            text-shadow: 0 2px 8px rgba(255,215,0,0.07);
-        }
-        .about-section p {
-            color: #232323;
-            font-size: 1.18rem;
-            line-height: 1.8;
-            margin-bottom: 0.8rem;
-            text-align: justify;
-            text-justify: inter-word;
-            padding: 0 0.5rem;
+        @media (max-width: 600px) {
+            .gallery-images {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.7rem;
+                justify-items: center;
+            }
+            .gallery-images img {
+                width: 95vw;
+                max-width: 100%;
+                height: auto;
+                border-radius: 12px;
+            }
         }
         .video-section {
-            max-width: 850px;
-            margin: 2.5rem auto;
-            background: rgba(255,255,255,0.98);
-            border-radius: 18px;
-            box-shadow: 0 6px 32px rgba(255,215,0,0.10);
-            padding: 2rem 1.5rem 1.5rem 1.5rem;
             text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        .video-section h2 {
-            color: #25d366;
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        .video-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        .video-container {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-            max-width: 600px;
-        }
-        .video-container video {
-            width: 100%;
-            border-radius: 14px;
-            box-shadow: 0 2px 12px rgba(255,215,0,0.10);
-            background: #000;
-            border: 4px solid;
-            border-image: linear-gradient(135deg, #ffd700 0%, #25d366 100%);
-            border-image-slice: 1;
-        }
-        .play-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #ffd700;
-            font-size: 4rem;
-            opacity: 0.85;
-            pointer-events: none;
-            transition: opacity 0.2s;
-        }
-        .video-container:hover .play-overlay {
-            opacity: 0.5;
-        }
-        .video-note {
-            color: #232323;
-            font-size: 1.08rem;
-            margin-top: 0.5rem;
         }
         .video-btn {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.7rem 2rem;
+            margin-top: 1.2rem;
             background: linear-gradient(90deg, #25d366 60%, #ffd700 100%);
             color: #fff;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.08rem;
-            text-decoration: none;
-            box-shadow: 0 2px 8px rgba(255,215,0,0.15);
-            transition: background 0.2s, color 0.2s;
             border: none;
+            border-radius: 30px;
+            padding: 0.7rem 2.2rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 2px 8px rgba(255,215,0,0.13);
+            text-decoration: none;
+            display: inline-block;
         }
         .video-btn:hover {
             background: #fff;
             color: #25d366;
             border: 2px solid #25d366;
         }
-        .testimonials-section {
-            max-width: 950px;
-            margin: 3rem auto 2rem auto;
-            background: rgba(255,255,255,0.98);
-            border-radius: 18px;
-            box-shadow: 0 6px 32px rgba(255,215,0,0.10);
-            padding: 2.5rem 2rem;
-            text-align: center;
+        .video-container {
             position: relative;
-            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .testimonials-section h2 {
-            color: #25d366;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            letter-spacing: 1px;
-            font-weight: 700;
+        .play-overlay {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: #ffd700;
+            background: rgba(255,255,255,0.7);
+            border-radius: 50%;
+            padding: 0.2em 0.3em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
         }
         .testimonials {
             display: flex;
             gap: 2rem;
-            justify-content: center;
             flex-wrap: wrap;
+            justify-content: center;
         }
         .testimonial {
             background: #fffbe6;
-            border-left: 4px solid #ffd700;
-            border-radius: 12px;
+            border-radius: 14px;
             box-shadow: 0 2px 12px rgba(255,215,0,0.07);
-            padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+            padding: 1.2rem 1rem;
             max-width: 320px;
-            min-width: 220px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .testimonial p {
-            font-style: italic;
-            color: #232323;
             margin-bottom: 1.2rem;
         }
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 0.7rem;
+            margin-top: 0.7rem;
         }
         .testimonial-author img {
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            border: 2px solid #ffd700;
-        }
-        .testimonial-author span {
-            color: #25d366;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-        .faq-section {
-            max-width: 850px;
-            margin: 3rem auto 2rem auto;
-            background: rgba(255,255,255,0.98);
-            border-radius: 18px;
-            box-shadow: 0 6px 32px rgba(255,215,0,0.10);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        .faq-section h2 {
-            color: #ffd700;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            letter-spacing: 1px;
-            font-weight: 700;
+            object-fit: cover;
+            border: 2px solid #25d366;
         }
         .faq {
-            text-align: left;
-            margin: 0 auto;
             max-width: 700px;
+            margin: 0 auto;
         }
         .faq-item {
-            margin-bottom: 1.2rem;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #fffbe6;
-            box-shadow: 0 2px 8px rgba(255,215,0,0.06);
+            margin-bottom: 1rem;
         }
         .faq-question {
-            width: 100%;
-            background: #ffd700;
+            background: #25d366;
             color: #fff;
             border: none;
-            outline: none;
+            border-radius: 8px;
+            padding: 0.7rem 1.2rem;
+            width: 100%;
+            text-align: left;
             font-size: 1.08rem;
             font-weight: 600;
-            padding: 1rem 1.2rem;
-            text-align: left;
             cursor: pointer;
             transition: background 0.2s;
         }
         .faq-question:hover {
-            background: #25d366;
+            background: #ffd700;
+            color: #232323;
         }
         .faq-answer {
             display: none;
-            padding: 1rem 1.2rem;
-            background: #fff;
-            color: #232323;
-            font-size: 1rem;
-            border-top: 1px solid #ffe066;
+            background: #fffbe6;
+            border-radius: 0 0 8px 8px;
+            padding: 0.8rem 1.2rem;
+            margin-top: -0.3rem;
         }
         .faq-item.active .faq-answer {
             display: block;
-            animation: fadeIn 0.3s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px);}
-            to { opacity: 1; transform: translateY(0);}
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 3rem auto 2rem auto;
-            background: rgba(255,255,255,0.98);
-            border-radius: 18px;
-            box-shadow: 0 6px 32px rgba(255,215,0,0.10);
-            padding: 2.5rem 2.5rem;
-            text-align: center;
-            position: relative;
-            z-index: 1;
         }
         .contact-form label {
-            display: block;
-            text-align: left;
-            margin-bottom: 0.4rem;
             color: #25d366;
             font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
+            margin-top: 0.7rem;
         }
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 0.9rem 1rem;
+            padding: 0.7rem 1rem;
             border: 1.5px solid #ffd700;
             border-radius: 8px;
             font-size: 1rem;
-            font-family: inherit;
             background: #fffbe6;
             color: #232323;
-            outline: none;
-            transition: border 0.2s;
-            margin-bottom: 1.2rem;
-            resize: none;
+            margin-bottom: 0.7rem;
+            box-sizing: border-box;
         }
         .contact-form input:focus,
         .contact-form textarea:focus {
@@ -475,12 +385,13 @@
             color: #fff;
             border: none;
             border-radius: 30px;
-            padding: 0.8rem 2.5rem;
-            font-size: 1.1rem;
+            padding: 0.7rem 2.2rem;
+            font-size: 1.05rem;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.2s, color 0.2s;
-            box-shadow: 0 2px 8px rgba(255,215,0,0.15);
+            box-shadow: 0 2px 8px rgba(255,215,0,0.13);
+            margin-top: 0.7rem;
         }
         .contact-btn:hover {
             background: #fff;
@@ -488,27 +399,36 @@
             border: 2px solid #25d366;
         }
         footer {
-            text-align: center;
+            background: #25d366;
             color: #fff;
-            margin-top: 4rem;
-            padding: 2rem 0 1rem 0;
-            background: linear-gradient(90deg, #25d366 60%, #ffd700 100%);
-            position: relative;
-            z-index: 1;
+            text-align: center;
+            border-radius: 0 0 18px 18px;
+            margin-bottom: 0;
+            margin-top: 2rem;
+            padding: 2rem 1rem 1.2rem 1rem;
+            box-shadow: 0 -2px 16px rgba(37,211,102,0.08);
+        }
+        .social-icons {
+            margin-bottom: 1rem;
         }
         .social-icons a {
-            color: #fff;
+            color: #ffd700;
+            font-size: 1.7rem;
             margin: 0 0.5rem;
-            font-size: 1.5rem;
             transition: color 0.2s;
         }
         .social-icons a:hover {
-            color: #ffd700;
+            color: #fff;
+        }
+        .footer-address {
+            margin: 1rem 0;
+            color: #fff;
+            font-size: 1.05rem;
         }
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 24px;
+            right: 24px;
             background: #25d366;
             color: #fff;
             border-radius: 50%;
@@ -519,7 +439,7 @@
             justify-content: center;
             font-size: 2rem;
             box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-            z-index: 1000;
+            z-index: 10000;
             transition: background 0.2s;
             text-decoration: none;
         }
@@ -527,72 +447,22 @@
             background: #ffd700;
             color: #25d366;
         }
-        @media (max-width: 900px) {
-            nav {
-                padding: 0.5rem 1rem;
+        @media (max-width: 600px) {
+            .main-content, .about-section, .gallery-section, .video-section, .testimonials-section, .faq-section, .contact-form, footer {
+                padding: 1.1rem 0.4rem;
+                max-width: 99vw;
             }
-            .main-content h1 {
-                font-size: 2rem;
-            }
-            .about-section {
-                padding: 1.5rem 1rem;
-            }
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background: rgba(255,255,255,0.98);
-                position: absolute;
-                top: 60px;
-                right: 20px;
-                width: 220px;
-                border-radius: 8px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                padding: 1rem 0;
-                z-index: 100;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .menu-icon {
-                display: block;
-            }
-            nav {
-                position: relative;
-            }
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
-                border-radius: 0;
-            }
-            .gallery-images {
-                gap: 1rem;
-            }
-            .gallery-images img {
-                width: 45vw;
-                height: 30vw;
-                min-width: 120px;
-                min-height: 120px;
-            }
-            .about-section h2 {
-                font-size: 1.5rem;
-            }
-            .about-section p {
-                font-size: 1rem;
-            }
-            .contact-form {
-                padding: 1.5rem 1rem;
+            .whatsapp-float {
+                bottom: 16px;
+                right: 16px;
+                width: 48px;
+                height: 48px;
+                font-size: 1.7rem;
             }
         }
     </style>
-    <link rel="icon" type="image/png" href="assests/fav.jpg">
 </head>
 <body>
-    <body>
-    <div class="background-overlay"></div>
-    <div class="parallax-bg"></div>
-    <!-- ...rest of your content... -->
     <nav>
         <div class="nav-container">
             <div class="logo">
@@ -602,22 +472,22 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About Us</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonies">Testimonies</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#faq">FAQ's</a></li>
+                <li><a href="payment.html">Payment</a></li> <!-- Add this line -->
                 <li class="dropdown">
                     <a href="#services">Services</a>
                     <ul class="dropdown-menu">
                         <li><a href="shortT.html">Trouser</a></li>
                         <li><a href="shortS.html">Shirt</a></li>
                         <li><a href="natives.html">Natives for Men</a></li>
-                        
                     </ul>
                 </li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#testimonies">Testimonies</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#faq">FAQ's</a></li>
-                
             </ul>
-            
+                </li>
+            </ul>
             <div class="menu-icon" id="menuIcon" aria-label="Toggle navigation" tabindex="0">
                 <i class="ri-menu-line"></i>
             </div>
@@ -630,12 +500,12 @@
         <a href="longT.html" class="hero-btn">Book an Appointment</a>
     </main>
 
-    <section class="gallery-section">
+    <section class="gallery-section" id="gallery">
         <h2>Our Gallery</h2>
         <p class="gallery-note">
             Explore a selection of our finest tailoring works, showcasing our commitment to quality, creativity, and attention to detail. Each piece reflects the passion and craftsmanship that define BTM Stitches.
         </p>
-        <div class="gallery-images" id="gallery">
+        <div class="gallery-images">
             <img src="assests/image 1.jpg" alt="Sample 1">
             <img src="assests/image 14.jpg" alt="Sample 2">
             <img src="assests/image 12.jpg" alt="Sample 3">
@@ -655,7 +525,6 @@
     </section>
 
     <section class="about-section" id="about">
-        
         <h2>About Us</h2>
         <p>
             At BTM Stitches, we believe excellence is timeless.<br><br>
@@ -689,33 +558,30 @@
                 </div>
             </div>
         </div>
-        <a href="contact.html" class="video-btn">Book Your Style Session</a>
+        <a href="longT.html" class="video-btn">Book Your Style Session</a>
     </section>
-        
-        
-    </section>
-    
+
     <section class="testimonials-section" id="testimonies">
         <h2>What Our Clients Say</h2>
         <div class="testimonials">
             <div class="testimonial">
                 <p>"BTM Stitches exceeded my expectations! The fit and finish were perfect. Highly recommended."</p>
                 <div class="testimonial-author">
-                    <img src="images/client1.jpg" alt="Client 1">
+                    <img src="assests/image 16.jpg" alt="Client 1">
                     <span>— Chinedu O.</span>
                 </div>
             </div>
             <div class="testimonial">
                 <p>"Professional, creative, and always on time. My go-to tailor for all occasions."</p>
                 <div class="testimonial-author">
-                    <img src="images/client2.jpg" alt="Client 2">
+                    <img src="assests/image 12.jpg" alt="Client 2">
                     <span>— Aisha B.</span>
                 </div>
             </div>
             <div class="testimonial">
                 <p>"Amazing craftsmanship and attention to detail. I always feel confident in BTM's designs."</p>
                 <div class="testimonial-author">
-                    <img src="images/client3.jpg" alt="Client 3">
+                    <img src="assests/image 4.jpg" alt="Client 3">
                     <span>— Emeka U.</span>
                 </div>
             </div>
@@ -723,6 +589,7 @@
     </section>
 
     <section class="faq-section" id="faq">
+        
         <h2>Frequently Asked Questions</h2>
         <div class="faq">
             <div class="faq-item">
@@ -749,11 +616,110 @@
                     <p>We accept bank transfers, cash, and mobile payments. Details will be provided when you place your order.</p>
                 </div>
             </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I provide my own fabric?</button>
+                <div class="faq-answer">
+                    <p>Yes, you can bring your own fabric or choose from our selection in-store.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do you make clothes for women and children?</button>
+                <div class="faq-answer">
+                    <p>Currently, we specialize in menswear but can recommend trusted partners for women and children.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I make changes to my order after placing it?</button>
+                <div class="faq-answer">
+                    <p>Minor changes can be made within 24 hours of placing your order. Please contact us as soon as possible.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do you offer express/urgent tailoring?</button>
+                <div class="faq-answer">
+                    <p>Yes, express services are available at an extra cost. Please mention your deadline when booking.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How do I know my measurements are correct?</button>
+                <div class="faq-answer">
+                    <p>We recommend visiting our shop or booking a home visit for professional measurements.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I track the progress of my order?</button>
+                <div class="faq-answer">
+                    <p>Yes, we provide updates via WhatsApp or SMS as your order progresses.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do you deliver outside Jos?</button>
+                <div class="faq-answer">
+                    <p>Yes, we deliver nationwide in Nigeria. Delivery fees may apply based on your location.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What if my outfit doesn’t fit?</button>
+                <div class="faq-answer">
+                    <p>We offer free adjustments for any fitting issues reported within 7 days of delivery.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I cancel my order?</button>
+                <div class="faq-answer">
+                    <p>Orders can be cancelled within 24 hours. After that, a cancellation fee may apply.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do you offer group or bulk discounts?</button>
+                <div class="faq-answer">
+                    <p>Yes, we offer discounts for group orders and special occasions. Contact us for a quote.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How do I care for my tailored clothes?</button>
+                <div class="faq-answer">
+                    <p>We recommend dry cleaning or gentle hand washing. Care instructions are provided with each outfit.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I get a digital receipt?</button>
+                <div class="faq-answer">
+                    <p>Yes, digital receipts are sent via email or WhatsApp after payment.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What are your working hours?</button>
+                <div class="faq-answer">
+                    <p>We are open Monday to Saturday, 9am – 6pm. Sundays by appointment only.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do you offer alterations for clothes not made by you?</button>
+                <div class="faq-answer">
+                    <p>Yes, we offer alteration services for all types of clothing, not just those made by us.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How do I contact customer support?</button>
+                <div class="faq-answer">
+                    <p>You can reach us via WhatsApp, phone, or the contact form on our website.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I pay online?</button>
+                <div class="faq-answer">
+                    <p>Yes, you can pay via bank transfer or request a payment link for online payment.</p>
+                </div>
+            </div>
         </div>
     </section>
-
     <form action="https://formspree.io/f/{form_id}" method="post" class="contact-form" id="contact">
         <h2>Contact Us</h2>
+        <div class="contact-address" style="margin-bottom:1rem; color:#25d366;">
+            <i class="ri-map-pin-2-fill" style="color:#ffd700; margin-right:6px;"></i>
+            No 5c Courtyard street, Rock Haven, Jos, Plateau State, Nigeria
+        </div>
         <label for="name">Your Name</label>
         <input name="Name" id="name" type="text" placeholder="Enter Your Name" required>
         <label for="email">Your Email</label>
@@ -771,7 +737,12 @@
             <a href="#"><i class="ri-instagram-fill"></i></a>
             <a href="#"><i class="ri-twitter-fill"></i></a>
         </div>
+        <div class="footer-address">
+            <i class="ri-map-pin-2-fill" style="color:#ffd700; margin-right:6px;"></i>
+            No 5c Courtyard street, Rock Haven, Jos, Plateau State, Nigeria
+        </div>
         <p>&copy; 2025 BTM Stitches. All rights reserved.</p>
+        <div style="margin-top:0.5rem;">Tel: <a href="tel:+2349078419018" style="color:#ffd700;text-decoration:none;">+2349078419018</a></div>
     </footer>
 
     <!-- WhatsApp Chat Button -->
