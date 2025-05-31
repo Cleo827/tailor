@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | BTM Stitches</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assests/fav.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background:
+                linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+                url('assests/image 7.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Poppins', Arial, sans-serif;
+            color: #232323;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .payment-section {
+            background: rgba(255,255,255,0.96);
+            border-radius: 28px;
+            max-width: 420px;
+            margin: 4rem auto 2rem auto;
+            padding: 2.5rem 2rem 2rem 2rem;
+            box-shadow: 0 8px 40px rgba(37,211,102,0.13);
+            text-align: center;
+        }
+        .payment-section h1 {
+            color: #25d366;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            margin-bottom: 1.2rem;
+        }
+        .payment-details {
+            background: #fffbe6;
+            border-radius: 16px;
+            padding: 1.3rem 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.13rem;
+            color: #232323;
+            box-shadow: 0 2px 8px rgba(255,215,0,0.10);
+            text-align: left;
+        }
+        .payment-details strong {
+            color: #25d366;
+        }
+        .copy-btn {
+            background: linear-gradient(90deg, #25d366 60%, #ffd700 100%);
+            color: #fff;
+            border: none;
+            border-radius: 22px;
+            padding: 0.6rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 0.7rem;
+            margin-bottom: 1.2rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        .copy-btn:hover {
+            background: #fff;
+            color: #25d366;
+            border: 2px solid #25d366;
+        }
+        .confirm-link {
+            display: inline-block;
+            margin-top: 1.2rem;
+            color: #fff;
+            background: #25d366;
+            padding: 0.7rem 1.7rem;
+            border-radius: 22px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.08rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        .confirm-link:hover {
+            background: #ffd700;
+            color: #25d366;
+        }
+        .back-link {
+            display: block;
+            margin-top: 2.2rem;
+            color: #25d366;
+            text-decoration: underline;
+            font-size: 1rem;
+        }
+        @media (max-width: 600px) {
+            .payment-section {
+                padding: 1.2rem 0.5rem;
+                max-width: 98vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="payment-section">
+        <h1>Payment Details</h1>
+        <div class="payment-details" id="paymentDetails">
+            <div><strong>Account Name:</strong> BTM MULTIBIZ CONCEPTS</div>
+            <div><strong>Account Number:</strong> <span id="acctNum">0101796124</span> <button class="copy-btn" onclick="copyAcctNum()">Copy</button></div>
+            <div><strong>Bank:</strong> Sterling Bank</div>
+        </div>
+        <div>
+            After payment, please send your payment confirmation via WhatsApp.
+        </div>
+        <a class="confirm-link" href="https://wa.me/2347035321197?text=Hello%2C%20I%20have%20made%20payment%20for%20my%20order." target="_blank">
+            <i class="ri-whatsapp-fill"></i> Confirm on WhatsApp
+        </a>
+        <a class="back-link" href="index.html">&larr; Back to Home</a>
+    </section>
+    <script>
+        // Copy account number to clipboard
+        function copyAcctNum() {
+            const acctNum = document.getElementById('acctNum').innerText;
+            navigator.clipboard.writeText(acctNum);
+            alert('Account number copied!');
+        }
+    </script>
+</body>
+</html>
